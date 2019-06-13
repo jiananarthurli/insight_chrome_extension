@@ -89,14 +89,15 @@ function load() {
     	var event_table = document.createElement("TABLE");
 
     	data.events.forEach(function(event) {
-  			row = event_table.insertRow(-1);
-  			event_name = event.name;
-  			event_link = event_name.link(event.link);
+  			var row = event_table.insertRow(-1);
+  			var event_name = event.name;
+  			var event_link = event_name.link(event.link);
+  			event_link.target = '_blank'; // should open a new tap when clicked
   			row.innerHTML =  event_link;
 		})
     	
     	table_of_events.appendChild(event_table);
-    	
+
       	// table_of_events.innerText = data.events[0].name;
     }
   })
