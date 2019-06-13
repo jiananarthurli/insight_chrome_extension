@@ -15,7 +15,7 @@
  },
  "default_locale": "en",
  "browser_action": {
-  "default_icon": "icons/icon19.png",
+  "default_icon": "icons/icon19_grey.png",
   "default_title": "WikiGo",
   "default_popup": "src/browser_action/browser_action.html"
  },

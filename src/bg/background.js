@@ -19,6 +19,9 @@ function isLocalKeyEmpty (key) {
 }
 
 function reset (){
+
+	chrome.browserAction.setIcon({path : "../../icons/icon19_grey.png"});
+
 	chrome.storage.local.clear(function () {
 		console.log("Events reset");
 	});
@@ -34,11 +37,6 @@ chrome.webNavigation.onDOMContentLoaded.addListener(function (details) {
 
 	if (url.includes("https://en.wikipedia.org/wiki/")) {
 
-		// reset the events variable
-		chrome.storage.local.set({events: []}, function() {
-        	console.log("Events reset");
-        });
-
 		var topic = url.replace("https://en.wikipedia.org/wiki/", "");
 		if (topic.includes('#')) {
 			topic = topic.split('#')[0];
@@ -47,10 +45,14 @@ chrome.webNavigation.onDOMContentLoaded.addListener(function (details) {
 
 		fetch(req_url)
 		.then(r => r.text())
-		.then(function(result) { 
-			chrome.storage.local.set({events: result}, function() {
-				console.log("Events updated");
-        	});
+		.then(function(result) {
+			result_json = JSON.parse(result);
+			if (result_json.found) {
+				chrome.storage.local.set({events: result_json.events}, function() {
+					console.log("Found events");
+					chrome.browserAction.setIcon({path : "../../icons/icon19_color.png"});
+        		});
+			}
 		});
 	}
 });

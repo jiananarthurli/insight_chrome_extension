@@ -85,27 +85,25 @@ function load() {
   chrome.storage.local.get('events', function(data) {
 
     if(typeof(data.events) !== "undefined") {
-      console.log(data.events);
-      table_of_events.innerText = JSON.parse(data.events)[0].name;
-      console.log('Events retrieved');
+
+    	var event_table = document.createElement("TABLE");
+
+    	data.events.forEach(function(event) {
+  			row = event_table.insertRow(-1);
+  			event_name = event.name;
+  			event_link = event_name.link(event.link);
+  			row.innerHTML =  event_link;
+		})
+    	
+    	table_of_events.appendChild(event_table);
+    	
+      	// table_of_events.innerText = data.events[0].name;
     }
   })
 }
 
 document.addEventListener('DOMContentLoaded', function() {
 
-  // refresh();
   load();
 
 })
-
-// chrome.storage.onChanged.addListener(function("local" ) {
-//   chrome.storage.local.get(['events'], function(data) {
-//     if (data) {
-//       var events = JSON.parse(data.events);
-//       console.log('Events retrieved')
-//       console.log(events[0].name);
-//     }
-//   })
-// })
-
