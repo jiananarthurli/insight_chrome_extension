@@ -12,11 +12,6 @@
 //     sendResponse();
 //   });
 
-function isLocalKeyEmpty (key) {
-	chrome.storage.local.getBytesInUse(key, function (bytes) {
-		return bytes == 0;
-	});
-}
 
 function reset (){
 
@@ -38,6 +33,8 @@ chrome.webNavigation.onDOMContentLoaded.addListener(function (details) {
 	if (url.includes("https://en.wikipedia.org/wiki/")) {
 
 		var topic = url.replace("https://en.wikipedia.org/wiki/", "");
+
+		// try to remove the #... anchoring labels but not sure this is working
 		if (topic.includes('#')) {
 			topic = topic.split('#')[0];
 		}
