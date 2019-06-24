@@ -8,9 +8,13 @@ function load() {
 
       event_list.innerHTML = "";
 
-    	data.events.forEach(function(event) {
+    	data.events.forEach(function(event, idx, array) {
 
-        var elmnt = document.createElement("li")
+        if (idx === (array.length - 1)) {
+          var elmnt = document.createElement("ul")
+        } else {
+          var elmnt = document.createElement("li")
+        }
 
   			var event_name = event.name;
         var event_link = event.link;
@@ -21,7 +25,7 @@ function load() {
         div.setAttribute("class", "venue");
 
         var a = document.createElement("a");
-        // a.innerHTML = '<div class="venue">' + JSON.stringify(event_venue) + '</div>' + event_name;
+
         a.innerHTML = event_name;
         a.setAttribute("target", "_blank");
         a.setAttribute("href", event_link)
@@ -30,9 +34,6 @@ function load() {
         elmnt.appendChild(a);
 
         console.log(elmnt);
-
-  			// var a = event_name.link(event_link);
-  			// a.target = '_blank'; // should open a new tap when clicked
 
         event_list.appendChild(elmnt);
 

@@ -9,7 +9,7 @@ body {
   /*position: absolute;*/
   /*top: 34px;*/
   /*width: 210px; */
-/*  height: 200px;*/
+  height: 50px;
   width: 300px;
   /*box-shadow: 0 3px 10px hsl(0, 0%, 30%);*/
   font-family: Helvetica, Arial, sans-serif;
@@ -42,9 +42,9 @@ body {
   background-color: hsl(0, 0%, 100%);
   color: hsl(0, 0%, 20%);
   display: block;
-  padding: 8px 12px 10px 12px;
+  padding: 8px 20px 8px 20px;
   text-decoration: none;
-  /*border-bottom: 1px solid hsl(0, 0%, 80%);*/
+  border-bottom: 1px solid hsl(0, 0%, 80%);
 }
 
 .events li:hover {
@@ -52,6 +52,20 @@ body {
   text-decoration: none;
 }
 
+.events ul {
+  /*font-size: 14px;*/
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 20%);
+  display: block;
+  padding: 8px 20px 8px 20px;
+  text-decoration: none;
+/*  border-bottom: 1px solid hsl(0, 0%, 80%);
+*/}
+
+.events ul:hover {
+  background-color: hsl(27, 84%, 77%, 1);
+  text-decoration: none;
+}
 
 .venue {
   font-size: 12px;
