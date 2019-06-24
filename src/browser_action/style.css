@@ -1,0 +1,57 @@
+body {
+  margin: 0px 0px 0px 0px !important;
+}
+
+.event_container {
+  /*display: none;*/
+  /*display: block;*/
+  /*left: 0;*/
+  /*position: absolute;*/
+  /*top: 34px;*/
+  /*width: 210px; */
+/*  height: 200px;*/
+  width: 300px;
+  /*box-shadow: 0 3px 10px hsl(0, 0%, 30%);*/
+  font-family: Helvetica, Arial, sans-serif;
+  /*font-family: Georgia, Helvetica, Arial, sans-serif;*/
+  /*box-sizing: border-box;*/
+}
+
+.events {
+  list-style: none;
+  padding: 0px 0px 0px 0px;
+}
+
+.events a {
+  font-size: 14px;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 20%);
+  display: block;
+  padding: 8px 0px 8px 12px;
+  text-decoration: none;
+  border-bottom: 1px solid hsl(0, 0%, 80%);
+}
+
+.events a:hover {
+  /*background-color: hsl(0, 0%, 80%);*/
+  background-color: hsl(27, 84%, 77%, 1);
+  text-decoration: none;
+}
+
+.venue {
+  font-size: 12px;
+  font-style: bold;
+  background-color: hsl(0, 0%, 100%, 0);
+  color: hsl(0, 0%, 40%);
+  display: block;
+  padding: 0px 0px 5px 0px;
+  text-decoration: none;
+}
+/*
+.Fs8au {
+  border-top: 1px solid hsl(0, 0%, 90%);
+}
+
+.SWhEv {
+  border-bottom: 1px solid hsl(0, 0%, 90%);
+}*/
