@@ -17,11 +17,11 @@ body {
   /*box-sizing: border-box;*/
 }
 
-.default {  
+h4 {  
   padding: 16px 16px 16px 16px;
   font-size: 15px;
   color: hsl(0, 0%, 50%);
-  font-family: Georgia, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .events {
