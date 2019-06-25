@@ -15,7 +15,7 @@
 
 function reset (){
 
-	chrome.browserAction.setIcon({path : "../../icons/icon19_grey.png"});
+	chrome.browserAction.setIcon({path : "../../icons/Logo_greyscale.png"});
 
 	chrome.storage.local.clear(function () {
 		console.log("Events reset");
@@ -23,7 +23,7 @@ function reset (){
 }
 
 reset();
-var api_server = "http://127.0.0.1:8000/";
+var api_server = "http://67.205.138.102:8000/";
 
 chrome.webNavigation.onDOMContentLoaded.addListener(function (details) {
 
@@ -47,7 +47,7 @@ chrome.webNavigation.onDOMContentLoaded.addListener(function (details) {
 			if (result_json.found) {
 				chrome.storage.local.set({events: result_json.events}, function() {
 					console.log("Found events");
-					chrome.browserAction.setIcon({path : "../../icons/icon19_color.png"});
+					chrome.browserAction.setIcon({path : "../../icons/Logo.png"});
         		});
 			}
 		});
