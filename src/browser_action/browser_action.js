@@ -28,7 +28,7 @@ function load() {
 
         a.innerHTML = event_name;
         a.setAttribute("target", "_blank");
-        a.setAttribute("href", event_link)
+        a.setAttribute("href", event_link);
 
         elmnt.appendChild(div);
         elmnt.appendChild(a);
@@ -37,7 +37,7 @@ function load() {
 
         event_list.appendChild(elmnt);
 
-		  })        
+		  });       
 
 
     }
@@ -48,4 +48,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
   load();
 
-})
+});
