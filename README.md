@@ -26,12 +26,12 @@ There are four components in the the Chrome extension: manifest (```./manifest.j
 
 Manifest is the starting point of the extension. The basic info (extension name, description, etc), location of resources, and permissions are all stored in [```./manifest.json```](./manifest.json).
 
-The function that monitors the behavior of the Chrome extension is stored in [```./bg/background.js```](./src/bg/background.js). A listener function (```chrome.webNavigation.onDOMContentLoaded.addListener()```) is added so that the URL of the newest page is inspected once the [DOM](https://en.wikipedia.org/wiki/Document_Object_Model) of the webpage is loaded . The topic of the Wikipedia page is extracted from the URL, and  sent to the API server. If recommendations are made, the json string that contains the event info is retrieved from the API server is stored locally (```chrome.storage.local.set()```) and the icon is changed (```chrome.browserAction.setIcon()```) to notify the user.
+The function that monitors the behavior of the Chrome extension is stored in [```./src/bg/background.js```](./src/bg/background.js). A listener function (```chrome.webNavigation.onDOMContentLoaded.addListener()```) is added so that the URL of the newest page is inspected once the [DOM](https://en.wikipedia.org/wiki/Document_Object_Model) of the webpage is loaded . The topic of the Wikipedia page is extracted from the URL, and  sent to the API server. If recommendations are made, the json string that contains the event info is retrieved from the API server is stored locally (```chrome.storage.local.set()```) and the icon is changed (```chrome.browserAction.setIcon()```) to notify the user.
 
-Everytime the icon of the Chrom extension is clicked, a new webpage will be constructed from [```./browser_action```](./src/browser_action). ```./browser_action/browser_action.js``` retrieves event info from the browser's local storage space (```chrome.storage.local.get()```). If the space is not empty, an event listing page will be constructed, otherwise a default page is displayed.
+Everytime the icon of the Chrom extension is clicked, a new webpage will be constructed from [```./src/browser_action```](./src/browser_action). ```./browser_action/browser_action.js``` retrieves event info from the browser's local storage space (```chrome.storage.local.get()```). If the space is not empty, an event listing page will be constructed, otherwise a default page is displayed.
 
 
-Google has a great tutorial for building a Chrome extension:
+Google has a great tutorial for Chrome extensions:
 
 https://developer.chrome.com/extensions/getstarted
 
