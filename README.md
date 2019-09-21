@@ -1,1 +1,44 @@
-# insight_chrome_extension
+# Weekendpedia Chrome Extension
+
+This repo is the Chrome Extension part of the [Insight Data Science](https://insightdatascience.com) project [Weekendpedia](https://chrome.google.com/webstore/search/weekendpedia). The source code for the API server and other information can be found in this [repo](https://github.com/jiananarthurli/insight_api).
+
+```bash
+.
+├── README.md
+├── _locales
+│   └── en
+│       └── messages.json
+├── icons
+│   ├── Logo.png
+│   └── Logo_greyscale.png
+├── manifest.json
+└── src
+    ├── bg
+    │   ├── background.html
+    │   └── background.js
+    └── browser_action
+        ├── browser_action.html
+        ├── browser_action.js
+        └── style.css
+```
+
+There are four components in the the Chrome extension: manifest (```./manifest.json```), background scripts (```./bg/background.js```), pop-up window (```./browser_action```) and icons (```./icons```). 
+
+Manifest is the starting point of the extension. The basic info (extension name, description, etc), location of resources, and permissions are all stored in [```./manifest.json```](./manifest.json).
+
+The function that monitors the behavior of the Chrome extension is stored in [```./bg/background.js```](./bg/background.js). A listener function (```chrome.webNavigation.onDOMContentLoaded.addListener()```) is added so that the URL of the newest page is inspected once the [DOM](https://en.wikipedia.org/wiki/Document_Object_Model) of the webpage is loaded . The topic of the Wikipedia page is extracted from the URL, and  sent to the API server. If recommendations are made, the json string that contains the event info is retrieved from the API server is stored locally (```chrome.storage.local.set()```) and the icon is changed (```chrome.browserAction.setIcon()```) to notify the user.
+
+Everytime the icon of the Chrom extension is clicked, a new webpage will be constructed from [```./browser_action```](./browser_action). ```./browser_action/browser_action.js``` retrieves event info from the browser's local storage space (```chrome.storage.local.get()```). If the space is not empty, an event listing page will be constructed, otherwise a default page is displayed.
+
+
+Google has a great tutorial for building a Chrome extension:
+https://developer.chrome.com/extensions/getstarted
+
+All the Chrome API functions can be found in the official docs:
+https://developer.chrome.com/extensions/api_index
+
+The Chrome API functions are async functions. More info can be found here:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+
+This is a great site for templates, if you need more fancy stuffs in your extension:
+https://extensionizr.com 

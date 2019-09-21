@@ -12,7 +12,7 @@ function load() {
       event_list.innerHTML = "";
 
       // Generate list for each event entry
-    	data.events.forEach(function(event, idx, array) {
+      data.events.forEach(function(event, idx, array) {
 
         // Check if the element is the last one. Use a different css style if true.
         if (idx === (array.length - 1)) {
@@ -22,7 +22,7 @@ function load() {
         }
 
         // Obtain the event name, venue and link.
-  			var event_name = event.name;
+        var event_name = event.name;
         var event_link = event.link;
         var event_venue = event.venue;
 
@@ -45,10 +45,9 @@ function load() {
         // Append the new element to the list.
         event_list.appendChild(elmnt);
 
-		  });       
-
+      });
     }
-  })
+  });
 }
 
 // Trigger the function when DOM of the pop-up is loaded.
